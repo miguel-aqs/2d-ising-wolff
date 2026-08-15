@@ -1,14 +1,9 @@
-<<<<<<< HEAD
 # 2D Ising Model - Metropolis Monte Carlo Simulation
 
 > First of all, it's technically pronounced "EE-zing" not "EYE-zing" but no one seems to care.
 
 ***This is a two-part project! You can find Part II where I use a more efficient algorithm [here](https://github.com/miguel-aqs/2d-ising-wolff).***
-=======
-# 2D Ising Model - Wolff Monte Carlo Simulation
 
-***This is a two-part project! You can find Part I where I use a simpler (but less efficient) algorithm [here](https://github.com/miguel-aqs/2d-ising-wolff).***
->>>>>>> f064c56197aad18f6283eee671659856919142c9
 
 This is a simple Monte Carlo Markov Chain simulation made with the intent to model magnets as a large grid of cells, each representing an atom's individual 'spin' or what can be thought of as magnetic charge.
 
@@ -16,7 +11,7 @@ Each atom on the grid tends toward the action of least energy. At low temperatur
 
 Raising the temperature past a certain critical temperature dissolves the magnetic structure into high-entropy, uncorrelated static flipping back and forth as thermal energy is injected, overpowering magnetic bonds.
 
-These probabilities are governed by the Boltzmann distribution, through a Hamiltonian. This Hamiltonian takes the form of a Metropolis algorithm in the code.
+These probabilities are governed by the Boltzmann distribution, through a Hamiltonian. This Hamiltonian is ran through a Wolff algorithm in the code.
 
 In 1944, Lars Onsager solved the 2D Ising model, finding the critical temperature at which the magnet loses its ferromagnetism to be at roughly `T ≈ 2.269`.
 
@@ -31,7 +26,6 @@ The parameters that can be easily adjusted in `ising.py` are:
 * **Show graph** (Toggleable)
 * **Show slider*** (Toggleable)
 
-<<<<<<< HEAD
 ## Recommended Settings
 Note that this was made on a laptop, so has that level of hardware in mind.
 
@@ -47,31 +41,15 @@ This project is built using standard Python and requires the following external 
 
 ## Changelog
 
-### [July 3, 2026]
-* Introduced quenched disorder via a site-vacancy impurity protocol (`pctg_impurities`).
-* Changed black-white color scheme to blue-red-black (black for impurities) for clear domiain wall tracking.
-* Updated `get_net_magnetization` calculation to dynamically filter out impurity sites, preventing baseline data skewing.
-
-### [July 1, 2026]
-* Added a toggleable graph feature to show net magnetization of the lattice grid with real-time history.
-* Optimized with Matplotlib's blit engine.
-* Added a toggleable slider for temperature.
-* Revamped GUI organization code.
-* Minor QoL updates.
-
-### [June 30, 2026]
-* Built the main Metropolis algorithm
-* Created the grid from a NumPy and Matplotlib array
-* Used `animation.FuncAnimation` to display the changing spin configurations live.
-
+### [August 15, 2026]
+* Cloned the Metropolis (Part I) repo to prepare to switch the algorithms.
+* Sorted through git backend bureaucracy.
 
 ## Credits
 
 * Credit to Revimime for compiling the research into molecular thermodynamics and ferromagnetism.
 * Credit to Mulletgoneviral for the rickrolls and slandering macbooks.
 
-=======
->>>>>>> f064c56197aad18f6283eee671659856919142c9
 ## Learn More
 Read more about the physics [here](https://en.wikipedia.org/wiki/Ising_model).
 Learn more about the math and the Hamiltonian [here](https://www.youtube.com/watch?v=BHHoTagq03A).
