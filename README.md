@@ -24,7 +24,7 @@ The parameters that can be easily adjusted in `ising.py` are:
 * **Steps per frame** (Math steps calculated before updating the screen)
 * **Temperature** (`T`)
 * **Show graph** (Toggleable)
-* **Show slider*** (Toggleable)
+* **Show slider** (Toggleable)
 
 ## Recommended Settings
 Note that this was made on a laptop, so has that level of hardware in mind.
