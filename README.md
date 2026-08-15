@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # 2D Ising Model - Metropolis Monte Carlo Simulation
 
 > First of all, it's technically pronounced "EE-zing" not "EYE-zing" but no one seems to care.
 
 ***This is a two-part project! You can find Part II where I use a more efficient algorithm [here](https://github.com/miguel-aqs/2d-ising-wolff).***
+=======
+# 2D Ising Model - Wolff Monte Carlo Simulation
+
+***This is a two-part project! You can find Part I where I use a simpler (but less efficient) algorithm [here](https://github.com/miguel-aqs/2d-ising-wolff).***
+>>>>>>> f064c56197aad18f6283eee671659856919142c9
 
 This is a simple Monte Carlo Markov Chain simulation made with the intent to model magnets as a large grid of cells, each representing an atom's individual 'spin' or what can be thought of as magnetic charge.
 
@@ -25,6 +31,7 @@ The parameters that can be easily adjusted in `ising.py` are:
 * **Show graph** (Toggleable)
 * **Show slider*** (Toggleable)
 
+<<<<<<< HEAD
 ## Recommended Settings
 Note that this was made on a laptop, so has that level of hardware in mind.
 
@@ -63,6 +70,8 @@ This project is built using standard Python and requires the following external 
 * Credit to Revimime for compiling the research into molecular thermodynamics and ferromagnetism.
 * Credit to Mulletgoneviral for the rickrolls and slandering macbooks.
 
+=======
+>>>>>>> f064c56197aad18f6283eee671659856919142c9
 ## Learn More
 Read more about the physics [here](https://en.wikipedia.org/wiki/Ising_model).
 Learn more about the math and the Hamiltonian [here](https://www.youtube.com/watch?v=BHHoTagq03A).
