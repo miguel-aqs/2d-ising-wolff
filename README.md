@@ -1,8 +1,8 @@
-# 2D Ising Model - Metropolis Monte Carlo Simulation
+# 2D Ising Model - Wolff Monte Carlo Simulation
 
 > First of all, it's technically pronounced "EE-zing" not "EYE-zing" but no one seems to care.
 
-***This is a two-part project! You can find Part II where I use a more efficient algorithm [here](https://github.com/miguel-aqs/2d-ising-wolff).***
+***This is a two-part project! You can find Part I where I use a simpler (but less efficient) algorithm [here](https://github.com/miguel-aqs/2d-ising-wolff).***
 
 
 This is a simple Monte Carlo Markov Chain simulation made with the intent to model magnets as a large grid of cells, each representing an atom's individual 'spin' or what can be thought of as magnetic charge.
