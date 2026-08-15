@@ -47,8 +47,8 @@ This project is built using standard Python and requires the following external 
 
 ## Credits
 
-* Credit to Revimime for compiling the research into molecular thermodynamics and ferromagnetism.
-* Credit to Mulletgoneviral for the rickrolls and slandering macbooks.
+* Credit to [@Revimime](https://github.com/Revimime) for helping research Wolff vs. Swedsen-Wang algorithms.
+* Credit to [@Mulletgoneviral](https://github.com/MulletGoneViral) for the git bureaucracy help.
 
 ## Learn More
 Read more about the physics [here](https://en.wikipedia.org/wiki/Ising_model).
