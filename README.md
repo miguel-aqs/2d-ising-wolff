@@ -29,10 +29,14 @@ The parameters that can be easily adjusted in `ising.py` are:
 ## Recommended Settings
 Note that this was made on a laptop, so has that level of hardware in mind.
 
-* **For a smooth UI:** Use a `100x100` to `150x150` grid size with `40,000` to `50,000` maximum steps per frame.
-* **For deep data/large clusters:** Bump steps up to `100,000` (expect minor frame lag depending on your CPU).
-* **If the slider feels laggy:** Simply lower `steps_per_frame` until the UI runs smoothly.
-* Hiding the slider and/or graph can also allow larger grid sizes or steps per frame.
+The Wolff algorithm is unbelieveably faster than the Metropolis. To be honest, I have no clue on the limits of this thing, but a successful phase transition was detected using these:
+
+* `250x250` grid
+* `5` steps per frame
+* `0.39` percentage impurities
+* `2.269 T` (the critical temperature of the pure Ising model)
+* Initialize with random configuration.
+* Drag the `T` slider slowly until around 0.7-0.9 where fractals should form: the phase transition!
 
 ## Dependencies
 This project is built using standard Python and requires the following external libraries:
