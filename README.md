@@ -41,6 +41,10 @@ This project is built using standard Python and requires the following external 
 
 ## Changelog
 
+### [August 16, 2026]
+* Implemented the Wolff algorithm.
+* Successfully simulated phase transition in 0.39% impurities.
+
 ### [August 15, 2026]
 * Cloned the Metropolis (Part I) repo to prepare to switch the algorithms.
 * Sorted through git backend bureaucracy.
