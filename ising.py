@@ -1,5 +1,7 @@
 import numpy as np
 import random
+import matplotlib.pyplot as plt
+import csv
 
 
 """---CONFIG STUFF---"""
@@ -68,5 +70,43 @@ def get_abs_magnetization(spins):
 
 def run_sim(N, T, pct_impurity):
     G = init_lattice(N, pct_impurity)
+    measurements = []
     for i in range(500):
         wolff(G, N, T)
+    for j in range(1000):
+        wolff(G, N, T)
+        mag = get_abs_magnetization(G)
+        measurements.append(mag)
+    return np.var(measurements)
+
+def find_Tc(N, pct_impurity):
+    temperatures = np.linspace(0.5, 2.8, 100)
+    variances = []
+    for T in temperatures:
+        variances.append(run_sim(N, T, pct_impurity))
+    return temperatures[np.argmax(variances)]
+
+if __name__ == "__main__":
+    N = 250
+    impurities = np.linspace(0, 0.45, 15)
+
+    impurity_data = []
+    Tc_data = []
+
+    print("Starting simulation")
+
+    for I in impurities:
+        impurity_data.append(I)
+
+        Tc = find_Tc(N, I)
+
+        Tc_data.append(Tc)
+        print(f"--> Found Tc for {I*100:.2f}%: {Tc:.3f}")
+
+    print("Saving data to csv")
+    with open("simulation_results.csv", "w", newline="") as file:
+        writer = csv.writer(file)
+        writer.writerow(["Impurity Percentage", "Curie Temperature"])
+        for x, y in zip(impurity_data, Tc_data):
+            writer.writerow([x, y])
+    print("Simulation complete! File saved as simulation_results.csv")
