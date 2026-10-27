@@ -11,7 +11,7 @@ Each atom on the grid tends toward the action of least energy. At low temperatur
 
 Raising the temperature past a certain critical temperature dissolves the magnetic structure into high-entropy, uncorrelated static flipping back and forth as thermal energy is injected, overpowering magnetic bonds.
 
-These probabilities are governed by the Boltzmann distribution, through a Hamiltonian. This Hamiltonian is ran through a Wolff algorithm in the code.
+These probabilities are governed by the Boltzmann distribution, through a Hamiltonian. This Hamiltonian is run through a Wolff algorithm in the code.
 
 In 1944, Lars Onsager solved the 2D Ising model, finding the critical temperature at which the magnet loses its ferromagnetism to be at roughly `T ≈ 2.269`.
 
@@ -38,16 +38,33 @@ The Wolff algorithm is unbelieveably faster than the Metropolis. To be honest, I
 * Initialize with random configuration.
 * Drag the `T` slider slowly until around 0.7-0.9 where fractals should form: the phase transition!
 
+## Notable Branches
+### Headless Simulation
+* Created to run simulation purely to collect data
+* Identifies Curie temperatures across a range of percentage impurities
+
 ## Dependencies
 This project is built using standard Python and requires the following external libraries:
 * **NumPy** - For efficient multidimensional grid manipulation and math.
 * **Matplotlib** - For handling the live, real-time GUI animation.
+* **csv** (built into Python) - Used to export data in `headless-sim`.
+* **multiprocessing** - Used to optimize simulation running across multiple cores in `headless-sim`.
 
 ## Changelog
 
+### [October 27, 2026]
+* `headless-sim`: Added multiprocessing to optimize simulation
+* Successfully ran a simulation of `N=50` from 0% to 45% impurities.
+
+### [October 26, 2026]
+* Created new `headless-sim` branch
+* `headless-sim`: stripped matplotlib and graph code
+* `headless-sim`: Created master loop to find Curie temperature across range of values
+* `headless-sim`: Added export of data to csv
+
 ### [August 16, 2026]
 * Implemented the Wolff algorithm.
-* Successfully simulated phase transition in 0.39% impurities.
+* Successfully simulated phase transition in 39% impurities.
 
 ### [August 15, 2026]
 * Cloned the Metropolis (Part I) repo to prepare to switch the algorithms.

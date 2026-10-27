@@ -2,6 +2,7 @@ import numpy as np
 import random
 import matplotlib.pyplot as plt
 import csv
+import multiprocessing as mp
 
 
 """---CONFIG STUFF---"""
@@ -80,28 +81,26 @@ def run_sim(N, T, pct_impurity):
     return np.var(measurements)
 
 def find_Tc(N, pct_impurity):
+    print(f"Calculating Tc for {pct_impurity*100:.2f}% impurities... (this may take a minute)")
     temperatures = np.linspace(0.5, 2.8, 100)
     variances = []
     for T in temperatures:
         variances.append(run_sim(N, T, pct_impurity))
+    print(f"Finished {pct_impurity*100:.2f}%!")
     return temperatures[np.argmax(variances)]
 
 if __name__ == "__main__":
-    N = 250
+    N = 50
     impurities = np.linspace(0, 0.45, 15)
 
-    impurity_data = []
-    Tc_data = []
+    impurity_data = list(impurities)
 
-    print("Starting simulation")
+    tasks = [(N, I) for I in impurities]
 
-    for I in impurities:
-        impurity_data.append(I)
+    print(f"Starting simulation across {mp.cpu_count()} CPU cores")
 
-        Tc = find_Tc(N, I)
-
-        Tc_data.append(Tc)
-        print(f"--> Found Tc for {I*100:.2f}%: {Tc:.3f}")
+    with mp.Pool() as pool:
+        Tc_data = pool.starmap(find_Tc, tasks)
 
     print("Saving data to csv")
     with open("simulation_results.csv", "w", newline="") as file:
