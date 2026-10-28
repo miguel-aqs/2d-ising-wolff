@@ -69,29 +69,35 @@ def get_abs_magnetization(spins):
 
 
 
-def run_sim(N, T, pct_impurity):
-    G = init_lattice(N, pct_impurity)
-    measurements = []
-    for i in range(500):
-        wolff(G, N, T)
-    for j in range(1000):
-        wolff(G, N, T)
-        mag = get_abs_magnetization(G)
-        measurements.append(mag)
-    return np.var(measurements)
-
 def find_Tc(N, pct_impurity):
     print(f"Calculating Tc for {pct_impurity*100:.2f}% impurities... (this may take a minute)")
-    temperatures = np.linspace(0.5, 2.8, 100)
-    variances = []
+    
+    G = init_lattice(N, pct_impurity)
+    
+    temperatures = np.linspace(2.5, 0.05, 100)
+    susceptibilities = []
+
+
+    n_thermal = int(500 * (N / 50))
+    n_measure = int(1000 * (N / 50))
+
     for T in temperatures:
-        variances.append(run_sim(N, T, pct_impurity))
+        for _ in range(n_thermal):
+            wolff(G, N, T)
+        measurements = []
+        for _ in range(n_measure):
+            wolff(G, N, T)
+            measurements.append(get_abs_magnetization(G))
+
+        chi = np.var(measurements) / T
+        susceptibilities.append(chi)
+
     print(f"Finished {pct_impurity*100:.2f}%!")
-    return temperatures[np.argmax(variances)]
+    return temperatures[np.argmax(susceptibilities)]
 
 if __name__ == "__main__":
-    N = 50
-    impurities = np.linspace(0, 0.45, 15)
+    N = 250
+    impurities = np.linspace(0, 0.45, 20)
 
     impurity_data = list(impurities)
 
